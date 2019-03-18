@@ -34,11 +34,15 @@ int (*valformat(char *c))(char *)
 	} st_t;
 	st_t sts[] = {
 		{"%s", pt_s},
-		{"%d", pt_s},
+		{"%c", pt_c},
+		{"%", pt_p},
+		{"%d", pt_d},
+		{"%i", pt_i},
+		{"%-", pt_error},
 	};
-	
+
 	printf("\nBuscar: %s\n", c);
-	while(i < 2)
+	while(i < 6)
 	{
 		if(strcmp(sts[i].st,c) == 0)
 		{
@@ -48,14 +52,38 @@ int (*valformat(char *c))(char *)
 	}
 	return (0);
 }
-
+/*
 int pt_s(char *data)
 {
 	printf("imprimir cadena\n");
 	printf("%s", data);
 	return (0);
 }
-
+*/
+int pt_c(char *data)
+{
+	printf("char\n");
+	printf("%s", data);
+	return (0);
+}
+int pt_p(char *data)
+{
+	printf("porcentage\n");
+	printf("%s", data);
+	return (0);
+}
+int pt_d(char *data)
+{
+	printf("base decimal\n");
+	printf("%s", data);
+	return (0);
+}
+int pt_i(char *data)
+{
+	printf("autodetect the numeric base and print with this format\n");
+	printf("%s", data);
+	return (0);
+}
 int pt_error(char *data)
 {
 	printf("Error\n");
