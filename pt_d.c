@@ -4,15 +4,12 @@
 #include <stdarg.h>
 #include "holberton.h"
 
-int pt_s(va_list args)
+int pt_d(va_list args)
 {
 	int i = 0;
-	char *data = va_arg(args, char *);
+	int n = va_arg(args, int);
 	
-	while (data[i] != '\0')
-	{
-		_putchar(data[i]);
-		i++;
-	}
+	print_number(n);
 	return (i);
 }
+
