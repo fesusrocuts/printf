@@ -23,8 +23,8 @@ int (*valformat(char *c))(va_list)
 		{"%o", pt_o},
 		{"%x", pt_x},
 		{"%X", pt_X},
-		{"%p", pt_p},*/
-		{"%r", pt_r}
+		{"%p", pt_p},
+		{"%r", pt_r}*/
 	};
 	while (i < 12)
 	{

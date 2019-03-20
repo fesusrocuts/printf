@@ -1,4 +1,3 @@
-
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,7 +23,6 @@ int _printf(const char *format, ...)
 	strcpy(bkformat, format);
 	totallines = pf(bkformat, args);
 	va_end(args);
-	_putchar(10);
 	return (totallines);
 }
 
@@ -85,6 +83,8 @@ int pf(char *s, va_list args)
 		nl += (*valformat(filter))(args);
 		/*printf("\nback long for filter: %d\n", nl);*/
 	}
+	if (filter != NULL)
+	free(filter);
 	return (nl);
 }
 
