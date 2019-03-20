@@ -47,29 +47,35 @@ int pf(char *s, va_list args)
 
 	while (s[i])
 	{
-		if (s[i] == '%' && iss == 0)
-		{
-			iss = 1;
-			nfilter = 0;
-		}
-		if (is_specialchar(s[i]) == 0  && iss == 1)
+		if (s[i] == '%' && iss == 1 && strlen(filter) == 1)
+		{iss = 0;
+			nfilter = 0; }
+		else if (s[i] == '%' && iss == 0)
+		{iss = 1;
+			nfilter = 0; }
+		else if (is_specialchar(s[i]) == 0  && iss == 1)
 		{
 			nfilter = 0;
 			iss = 0;
-			/*printf("\nlookin for filter: %s\n", filter);*/
-			nl += (*valformat(filter))(args);
-			/*printf("\nback long for filter: %d\n", nl);*/
+			if (strlen(filter) == 1)
+			{_putchar('%');
+				nl++; }
+			else
+			{
+				/*printf("\nlookin for filter: %s\n", filter);*/
+				nl += (*valformat(filter))(args);
+				/*printf("\nback long for filter: %d\n", nl);*/
+			}
+			if (filter != NULL)
+			{free(filter);
+				filter = malloc(sizeof(char) * 16); }
 		}
 		if (iss == 0)
-		{
-			_putchar(s[i]);
-			nl++;
-		}
+		{_putchar(s[i]);
+			nl++; }
 		if (iss == 1)
-		{
-			filter[nfilter] = s[i];
-			nfilter++;
-		}
+		{filter[nfilter] = s[i];
+			nfilter++; }
 		i++;
 	}
 	if (iss == 1)
@@ -88,7 +94,8 @@ int pf(char *s, va_list args)
  */
 int is_specialchar(char c)
 {
-	char *specialchar = "0123456789.%cdefigs";
+	/*char *specialchar = "0123456789.%cdefigs";*/
+	char *specialchar = "0123456789.%cdis";
 	int ch = 0;
 
 	while (specialchar[ch])
