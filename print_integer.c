@@ -7,9 +7,9 @@
 /**
  * print_number - prints an integer
  * @n: get number to process the integer
- * Return: void
+ * Return: lenght input
  */
-void print_number(int n)
+int print_number(int n)
 {
 	int div = 0;
 	int r = 0;
@@ -19,6 +19,7 @@ void print_number(int n)
 	int flagNeg = n < 0 ? 1 : 0;
 	int n1 = n0 < 0 ? n0 * -1 : n0; /*take the long, is use to count each digit*/
 	int n2 = n1; /*get the first digit of left and subtract the digit*/
+	int ls = 0;
 
 	do {
 		n2 = n2 / 10;
@@ -26,7 +27,10 @@ void print_number(int n)
 	} while (n2 > 0);
 
 	if (flagNeg == 1)
+	{
 		_putchar('-');
+		ls++;
+	}
 	do {
 		if (ln > 1)
 		{
@@ -34,11 +38,14 @@ void print_number(int n)
 			r = n1 > 9 ? n1 / div : 0;
 			n1 -= r * div;
 			_putchar(r + '0');
+			ls++;
 		}
 		else
 		{
 			_putchar((n1 + fixInt) + '0');
+			ls++;
 		}
 		ln--;
 	} while (ln > 0);
+	return (ls);
 }
