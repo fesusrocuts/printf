@@ -2,9 +2,12 @@
 #define _HOLBERTON_H
 int _putchar(char c);
 int _pow(int base, int exp);
+unsigned int _strlen(char *s);
+void cp(char *b, const char *a);
 int print_number(int n);
+int pf(char *, va_list);
+int is_specialchar(char);
 int _printf(const char *format, ...);
-
 /**
  *struct st - Contains the prototyped functions to the conversion spec
  *@st: Argument received
@@ -25,7 +28,6 @@ int pt_o(va_list);
 int pt_x(va_list);
 int pt_X(va_list);
 int pt_p(va_list);
-int pt_pp(va_list);
-int pt_r(va_list);
-
+/*int pt_pp(va_list);*/
+/*int pt_r(va_list);*/
 #endif

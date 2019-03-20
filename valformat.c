@@ -12,6 +12,7 @@
 int (*valformat(char *c))(va_list)
 {
 	int i = 0;
+	int i2 = 0;
 
 	st_t sts[] = {
 		{"%s", pt_s},
@@ -19,16 +20,18 @@ int (*valformat(char *c))(va_list)
 		{"%c", pt_c},
 		{"%d", pt_d},
 		{"%i", pt_i},
-		/*{"%u", pt_u},
+		{"%u", pt_u},
 		{"%o", pt_o},
 		{"%x", pt_x},
 		{"%X", pt_X},
-		{"%p", pt_p},*/
-		{"%r", pt_r}
+		{"%p", pt_p}
+		/*{"%r", pt_r}*/
 	};
-	while (i < 12)
+	while (i < 10)
 	{
-		if (strcmp(sts[i].st, c) == 0)
+		while(sts[i].st[i2] == c[i2] && c[i2] != '\0')
+			i2++;
+		if (sts[i].st[i2] == '\0' && c[i2] == '\0')
 		{
 			return (sts[i].f);
 		}

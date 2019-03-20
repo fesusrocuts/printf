@@ -13,6 +13,9 @@ int pt_s(va_list args)
 	int i = 0;
 	char *data = va_arg(args, char *);
 
+	if (data == NULL)
+		data = "(null)";
+
 	while (data[i] != '\0')
 	{
 		_putchar(data[i]);
