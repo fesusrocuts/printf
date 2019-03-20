@@ -10,18 +10,28 @@
  */
 int pt_r(va_list args)
 {
-	int i = 0;
+	int i, j;
 	char *data = va_arg(args, char *);
 
-	while (data[i] != '\0')
+	for (i = 0; *data != '\0'; i++)
+	{
+		data++;
+	}
+
+	for (j = i; j > 0; j--)
+	{
+		data--;
+		_putchar(*data);
+	}
+
+	/*while (*(data + i))
 	{
 		i++;
 	}
 
-	while (i > 0)
+	while (i--)
 	{
-		_putchar(data[i]);
-		i--;
-	}
+		_putchar(*(data + i));
+		}*/
 	return (i);
 }
