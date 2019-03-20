@@ -29,7 +29,7 @@ int (*valformat(char *c))(va_list)
 	};
 	while (i < 10)
 	{
-		while(sts[i].st[i2] == c[i2] && c[i2] != '\0')
+		while (sts[i].st[i2] == c[i2] && c[i2] != '\0')
 			i2++;
 		if (sts[i].st[i2] == '\0' && c[i2] == '\0')
 		{
