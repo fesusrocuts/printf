@@ -1,0 +1,59 @@
+.\" Manpage for _printf
+.\" Contact 790@holbertonschool or 729@holbertonschool.com
+.TH _PRINTF 1 "March 19 2019" "1.0" "_printf Man Page"
+.SH NAME
+	_printf \- Format and prints data on the standard output
+
+.SH SYNOPSIS
+	_printf [%csdix] ["Argument"]
+	_printf OPTION
+
+.SH DESCRIPTION
+Prints an argument based on a format. The format should be preceded by '%'
+symbol, and could be on any section of the argument of the function, after
+the call of the function. The next character will be the operator that'll be
+replaced by the argument. The input should be an string according to the
+synopsis
+.SH RETURN
+The return value will be the number of the characters printed. As the argument
+is a string, _printf ommit the NULL character on the count. If the returned
+value is negative, it means that an output error is encountered.
+.SH CONVERSION SPECIFIER
+The conversion specifier allows to _printf to do some conversions between a
+string [%Format] and a type specifier. The type specifier can be putted more
+than one time on the argument. Each specifier converts the argument into:
+.PP
+d, i
+.PP
+Signed decimal, being the result an int type of
+data
+.PP
+c
+.PP
+Char type data and prints it out
+.PP
+s
+.PP
+String data
+.PP
+u
+.PP
+Unsigned integer
+.PP
+o
+.PP
+Octal value of the argument
+.PP
+X, x
+.PP
+Hexadecimal value of the argument
+
+.SH FORMAT OPTIONS
+The format options of _printf controls output formatted.
+
+.SH SEE ALSO
+printf, putchar, puts, write, scanf
+
+.SH AUTHOR
+Fesus Rocuts <790@holbertonschool.com> and Juan Amaya <729@holbertonschool.com>
+Version 1.0 Includes only the conversion specifiers.
