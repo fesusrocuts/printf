@@ -4,6 +4,7 @@ int _putchar(char c);
 int _pow(int base, int exp);
 int print_number(int n);
 int _printf(const char *format, ...);
+
 /**
  *struct st - Contains the prototyped functions to the conversion spec
  *@st: Argument received
@@ -24,6 +25,7 @@ int pt_o(va_list);
 int pt_x(va_list);
 int pt_X(va_list);
 int pt_p(va_list);
-/*int pt_pp(va_list);*/
-/*int pt_r(va_list);*/
+int pt_pp(va_list);
+int pt_r(va_list);
+
 #endif

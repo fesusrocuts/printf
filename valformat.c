@@ -19,14 +19,14 @@ int (*valformat(char *c))(va_list)
 		{"%c", pt_c},
 		{"%d", pt_d},
 		{"%i", pt_i},
-		{"%u", pt_u},
+		/*{"%u", pt_u},
 		{"%o", pt_o},
 		{"%x", pt_x},
 		{"%X", pt_X},
-		{"%p", pt_p}
-		/*{"%r", pt_r}*/
+		{"%p", pt_p},*/
+		{"%r", pt_r}
 	};
-	while (i < 6)
+	while (i < 12)
 	{
 		if (strcmp(sts[i].st, c) == 0)
 		{
