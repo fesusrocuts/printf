@@ -8,7 +8,7 @@
  *@args: Argument received
  *Return: 1
  */
-int pt_c(va_list args)
+int pt_c(va_list  args)
 {
 	int data = va_arg(args, int);
 

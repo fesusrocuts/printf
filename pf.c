@@ -19,7 +19,7 @@ int pf(char *s, va_list args)
 	if (filter == NULL)
 		free(filter);
 
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] == '%' && iss == 1 && strlen(filter) == 1)
 		{iss = 0;
@@ -27,15 +27,12 @@ int pf(char *s, va_list args)
 		else if (s[i] == '%' && iss == 0)
 		{iss = 1;
 			nfilter = 0; }
-		else if (is_specialchar(s[i]) == 0  && iss == 1)
+		else if ((is_specialchar(s[i]) == 0 || _strlen(filter) == 2) && iss == 1)
 		{
 			nfilter = 0;
 			iss = 0;
-			if (strlen(filter) == 1)
-			{_putchar('%');
-				nl++; }
-			else
-				nl += (*valformat(filter))(args);
+			nl += (*valformat(filter))(args);
+
 			if (filter != NULL)
 			{free(filter);
 				filter = malloc(sizeof(char) * 16); }
@@ -49,6 +46,7 @@ int pf(char *s, va_list args)
 		i++;
 	}
 	if (iss == 1)
-		nl += (*valformat(filter))(args);
+	{nl += (*valformat(filter))(args); }
+	free(filter);
 	return (nl);
 }

@@ -16,11 +16,25 @@ int _printf(const char *format, ...)
 	char bkformat[1024];
 	int totallines = 0;
 
+	if (format == NULL)
+		format = "(null)";
+
 	va_start(args, format);
 	cp(bkformat, format);
+	checknull(bkformat);
 	totallines = pf(bkformat, args);
 	va_end(args);
-	_putchar(10);
 	return (totallines);
 }
+/**
+ * checknull - copy in pointer null the value (null)
+ * @s: pointer char
+ * Return: void
+ */
+void checknull(char *s)
+{
+	char *null = "(null)";
 
+	if (s == NULL)
+		cp(s, null);
+}

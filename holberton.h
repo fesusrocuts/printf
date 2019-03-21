@@ -1,5 +1,6 @@
 #ifndef _HOLBERTON_H
 #define _HOLBERTON_H
+void checknull(char *);
 int _putchar(char c);
 int _pow(int base, int exp);
 unsigned int _strlen(char *s);
